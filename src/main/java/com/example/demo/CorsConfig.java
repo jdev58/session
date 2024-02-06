@@ -3,16 +3,18 @@ package com.example.demo;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.GenericFilterBean;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
 
 
-
-    /**
+/**
      * The Logger for this class.
      */
 
@@ -22,6 +24,7 @@ import java.io.IOException;
         public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
                 throws IOException, ServletException {
             System.out.println("doFilter ........");
+            CorsConfiguration corsConfiguration = new CorsConfiguration();
 
             HttpServletResponse response = (HttpServletResponse) res;
             HttpServletRequest request = (HttpServletRequest) req;
@@ -32,6 +35,13 @@ import java.io.IOException;
             response.setHeader("Access-Control-Max-Age", "3600");
             response.setHeader("Access-Control-Allow-Headers",
                     "Origin, X-Requested-With, Content-Type, Accept, Key, Authorization");
+
+            corsConfiguration.setAllowedOrigins(Arrays.asList("*"));
+            corsConfiguration.setAllowedMethods(Arrays.asList("GET","POST"));
+            corsConfiguration.setAllowedHeaders(Arrays.asList("content-type"));
+            corsConfiguration.setAllowCredentials(true);
+            UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+            source.registerCorsConfiguration("/**", corsConfiguration);
 
 
 
