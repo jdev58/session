@@ -20,7 +20,7 @@ public class MyRest {
         String t = value.toString();
         System.out.println(t);
         request.getSession().setAttribute("mycap", t);
-        System.out.println("captcha="+request.getSession().getId());
+        System.out.println("sessionID="+request.getSession().getId());
         return new ResponseEntity<>(t, HttpStatus.OK);
 
     }
@@ -28,7 +28,7 @@ public class MyRest {
 
     @GetMapping("/get")
     public ResponseEntity<String> test2(HttpServletRequest request ){
-        System.out.println("get="+request.getSession().getId());
+        System.out.println("sessionID="+request.getSession().getId());
         String t  = (String) request.getSession().getAttribute("mycap");
         System.out.println(t);
         return new ResponseEntity<>(t, HttpStatus.OK);
