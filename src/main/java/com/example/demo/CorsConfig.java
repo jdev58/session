@@ -40,7 +40,7 @@ import java.util.Arrays;
             response.setHeader("Access-Control-Max-Age", "3600");
             response.setHeader("Access-Control-Allow-Headers",
                     "Origin, X-Requested-With, Content-Type, Accept, Key, Authorization");
-            response.setHeader("Set-Cookie", "key=value; HttpOnly; SameSite=none");
+            response.setHeader("Set-Cookie", "key=value; HttpOnly; SameSite=strict");
 
 
             if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
