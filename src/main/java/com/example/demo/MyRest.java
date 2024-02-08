@@ -9,7 +9,6 @@ import java.util.Random;
 
 @RestController
 @RequestMapping("/rest")
-@CrossOrigin(origins = "*")
 public class MyRest {
 
     @GetMapping("/captcha")
