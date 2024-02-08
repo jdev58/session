@@ -43,6 +43,7 @@ import java.util.Arrays;
             response.setHeader("Set-Cookie", "key=value; HttpOnly; SameSite=strict");
 
 
+
             if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
                 response.setStatus(HttpServletResponse.SC_OK);
             } else {
